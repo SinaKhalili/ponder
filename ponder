@@ -1,0 +1,14 @@
+#!/Users/sina/fun/ponder/env/bin/python
+import os
+import fire
+
+from ponder import Ponder
+
+if __name__ == "__main__":
+    key = os.environ.get("OPENAI_API_KEY", None)
+    if key is None:
+        raise ValueError(
+            "OPENAI_API_KEY not set. Please set it in your environment variables."
+        )
+
+    fire.Fire(Ponder(key))
